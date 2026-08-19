@@ -20,3 +20,5 @@
 - [x] Replace the Vite application shell with a Next.js foundation while preserving the King Solomon Tours and Travels visual system and public routes.
 - [x] Migrate data, authentication, planning, booking, dashboard, and admin workflows to Next.js-compatible server and client boundaries.
 - [x] Update automated tests and validate the migrated Next.js experience at desktop and mobile sizes before release.
+- [x] Adjust the Next.js build output so the managed deployment pipeline receives the required public artifact directory.
+- [x] Verify the production build artifact contract and publish a successful deployment checkpoint.

@@ -11,5 +11,6 @@ describe("Next.js migration", () => {
     expect(packageJson.dependencies.next).toBeDefined();
     expect(packageJson.scripts.build).toContain("next build");
     expect(packageJson.scripts.build).toContain("server/_core/index.ts");
+    expect(packageJson.scripts.build).toContain("dist/public/next-runtime.txt");
   });
 });
