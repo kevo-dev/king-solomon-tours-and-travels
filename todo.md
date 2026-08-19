@@ -12,3 +12,7 @@
 - [x] Add application routes and working client-side interactions for discovery, filtering, itinerary planning, save, inquiry, and navigation actions.
 - [x] Add appropriate database schema, typed server procedures, and unit tests for the implemented marketplace data flows.
 - [x] Verify desktop and mobile visual quality, keyboard accessibility, type-checking, and automated tests before release.
+- [x] Rename all customer-facing brand surfaces to King Solomon Tours and Travels.
+- [x] Update the published contact number to +254 720 607010 across public and operator-facing content.
+- [x] Add boat rides as a core marketplace feature and feature Lake Victoria journeys to Takawiri Island, Mfangano, and Mbasa Island.
+- [x] Validate the refreshed brand and boat-rides journeys across desktop and mobile, then update automated checks and save a release checkpoint.

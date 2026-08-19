@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { bookingInquiryInput, savedTourInput, tourFilterInput } from "./travel";
+import { operators, tours } from "../../client/src/lib/travelData";
 
 describe("travel input contracts", () => {
   it("accepts the required marketplace category labels", () => {
@@ -28,5 +29,19 @@ describe("travel input contracts", () => {
       travelDate: "2027-02-12",
     });
     expect(result.travelDate).toBeInstanceOf(Date);
+  });
+
+  it("keeps the Lake Victoria boat rides inside the established adventure category", () => {
+    const boatRideDestinations = tours.filter((tour) => tour.region === "Lake Victoria").map((tour) => tour.destination);
+
+    expect(boatRideDestinations).toEqual(["Takawiri Island", "Mfangano", "Mbasa Island"]);
+    expect(tours.filter((tour) => tour.region === "Lake Victoria").every((tour) => tour.category === "adventure")).toBe(true);
+  });
+
+  it("publishes the King Solomon Tours and Travels phone number", () => {
+    expect(operators.find((operator) => operator.name === "King Solomon Tours and Travels")).toMatchObject({
+      phone: "+254 720 607010",
+      packages: 3,
+    });
   });
 });

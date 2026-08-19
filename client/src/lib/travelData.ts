@@ -3,15 +3,19 @@ export const travelImages = {
   explorer: "/manus-storage/yxIOMw351LH9_932e8d06.webp",
   mara: "/manus-storage/lcguzdnogKP7_0e89af3a.jpg",
   beach: "/manus-storage/U4JWtflwvGTN_a4d81a22.jpg",
+  takawiri: "/manus-storage/takawiri-island-boat_5fad850a.jpg",
+  mfangano: "/manus-storage/mfangano-island-lodge_a86cf895.jpg",
+  mbasa: "/manus-storage/mbasa-island-boat_456ed5b8.jpg",
 };
 
 export type Category = "safari" | "beach" | "cultural" | "adventure" | "city";
+export type Destination = "Maasai Mara" | "Amboseli" | "Diani Beach" | "Nairobi" | "Naivasha" | "Takawiri Island" | "Mfangano" | "Mbasa Island";
 
 export type Tour = {
   id: number;
   slug: string;
   title: string;
-  destination: "Maasai Mara" | "Amboseli" | "Diani Beach" | "Nairobi" | "Naivasha";
+  destination: Destination;
   region: string;
   category: Category;
   days: number;
@@ -24,6 +28,15 @@ export type Tour = {
   itinerary: Array<{ day: string; title: string; detail: string }>;
   inclusions: string[];
   exclusions: string[];
+};
+
+export type Operator = {
+  name: string;
+  region: string;
+  focus: string;
+  email?: string;
+  phone: string;
+  packages: number;
 };
 
 export const categories: Category[] = ["safari", "beach", "cultural", "adventure", "city"];
@@ -66,9 +79,28 @@ export const tours: Tour[] = [
     itinerary: [{ day: "Day 1", title: "Lake arrival", detail: "Drive out from Nairobi and settle into a lakeside afternoon." }, { day: "Day 2", title: "Walk, cycle, float", detail: "A locally led day shaped by the weather and your energy." }],
     inclusions: ["One night accommodation", "Ground transfers", "Guided lake activity"], exclusions: ["Additional activities", "Personal refreshments"],
   },
+  {
+    id: 106, slug: "takawiri-island-boat-ride", title: "Takawiri Island Boat Ride", destination: "Takawiri Island", region: "Lake Victoria", category: "adventure", days: 1, group: "2–12 travelers", price: 14500, image: travelImages.takawiri, gallery: [travelImages.takawiri, travelImages.mfangano, travelImages.mbasa],
+    summary: "A relaxed Lake Victoria crossing to Takawiri Island, with shoreline time, island views, and a flexible return by boat.", operator: "King Solomon Tours and Travels",
+    itinerary: [{ day: "Day 1", title: "Cross to Takawiri Island", detail: "Meet at the departure point, board for the island crossing, and enjoy an unhurried day planned around conditions on the lake." }],
+    inclusions: ["Boat ride to Takawiri Island", "Life jackets", "Experienced boat crew", "Island-day coordination"], exclusions: ["Meals and refreshments", "Personal purchases", "Transfers to departure point"],
+  },
+  {
+    id: 107, slug: "mfangano-island-boat-escape", title: "Mfangano Island Boat Escape", destination: "Mfangano", region: "Lake Victoria", category: "adventure", days: 1, group: "2–10 travelers", price: 16800, image: travelImages.mfangano, gallery: [travelImages.mfangano, travelImages.takawiri, travelImages.mbasa],
+    summary: "A Lake Victoria island day for travelers seeking open water, quiet scenery, and Mfangano’s slow island atmosphere.", operator: "King Solomon Tours and Travels",
+    itinerary: [{ day: "Day 1", title: "Set out for Mfangano", detail: "Travel by boat across Lake Victoria, settle into the island rhythm, and return after a leisurely exploration window." }],
+    inclusions: ["Return boat ride to Mfangano", "Life jackets", "Experienced boat crew", "Flexible island itinerary"], exclusions: ["Meals and refreshments", "Entrance fees where applicable", "Personal purchases"],
+  },
+  {
+    id: 108, slug: "mbasa-island-boat-ride", title: "Mbasa Island Boat Ride", destination: "Mbasa Island", region: "Lake Victoria", category: "adventure", days: 1, group: "2–12 travelers", price: 13800, image: travelImages.mbasa, gallery: [travelImages.mbasa, travelImages.takawiri, travelImages.mfangano],
+    summary: "Take to Lake Victoria for a scenic boat ride toward Mbasa Island, designed for a simple, memorable day on the water.", operator: "King Solomon Tours and Travels",
+    itinerary: [{ day: "Day 1", title: "Lake Victoria to Mbasa Island", detail: "Depart by boat, enjoy the changing lake views, and make time for a calm island stop before returning." }],
+    inclusions: ["Return boat ride to Mbasa Island", "Life jackets", "Experienced boat crew", "Departure coordination"], exclusions: ["Meals and refreshments", "Personal purchases", "Transfers to departure point"],
+  },
 ];
 
-export const operators = [
+export const operators: Operator[] = [
+  { name: "King Solomon Tours and Travels", region: "Lake Victoria · Takawiri Island · Mfangano · Mbasa Island", focus: "Boat rides and curated Lake Victoria island escapes", phone: "+254 720 607010", packages: 3 },
   { name: "Acacia Trails Kenya", region: "Nairobi & Maasai Mara", focus: "Private safaris and classic Kenya circuits", email: "hello@acaciatrails.example", phone: "+254 700 000 101", packages: 7 },
   { name: "Coastal Rhythm Journeys", region: "Diani Beach & Kenya Coast", focus: "Thoughtful coastal stays and water-based days", email: "hello@coastalrhythm.example", phone: "+254 700 000 102", packages: 5 },
   { name: "Rift & Range Safaris", region: "Naivasha, Amboseli & Laikipia", focus: "Nature-forward weekend escapes and safaris", email: "hello@riftandrange.example", phone: "+254 700 000 103", packages: 9 },
