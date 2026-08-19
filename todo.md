@@ -30,3 +30,4 @@
 - [x] Validate the corrected deployment artifact layout and push the release fix to GitHub.
 - [x] Provide a crawl-visible, branded fallback for client-only route hydration so search visitors never receive a blank page shell.
 - [x] Isolate the active Next.js development cache from the standard `.next` production build directory.
+- [x] Diagnose and restore reliable hero and tour placeholder image loading across the Next.js site.

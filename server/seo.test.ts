@@ -20,5 +20,7 @@ describe("SEO implementation", () => {
     expect(tourLayout).toContain("generateMetadata");
     expect(tourLayout).toContain("TouristTrip");
     expect(clientRoute).toContain("Kenya tours, safaris, and Lake Victoria boat rides.");
+    expect(clientRoute).toContain("travelImages.mara");
+    expect(clientRoute).toContain("travelImages.takawiri");
   });
 });
