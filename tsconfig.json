@@ -1,12 +1,13 @@
 {
   "include": [
+    ".next-build/types/**/*.ts",
     ".next/types/**/*.ts",
     "app/**/*",
     "client/src/**/*",
     "next-env.d.ts",
     "server/**/*",
     "shared/**/*",
-    ".next-build/types/**/*.ts"
+    ".next-dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
