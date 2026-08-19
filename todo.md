@@ -16,3 +16,7 @@
 - [x] Update the published contact number to +254 720 607010 across public and operator-facing content.
 - [x] Add boat rides as a core marketplace feature and feature Lake Victoria journeys to Takawiri Island, Mfangano, and Mbasa Island.
 - [x] Validate the refreshed brand and boat-rides journeys across desktop and mobile, then update automated checks and save a release checkpoint.
+- [x] Audit the Vite/Express implementation and define a safe Next.js migration path that preserves the current product capabilities.
+- [x] Replace the Vite application shell with a Next.js foundation while preserving the King Solomon Tours and Travels visual system and public routes.
+- [x] Migrate data, authentication, planning, booking, dashboard, and admin workflows to Next.js-compatible server and client boundaries.
+- [x] Update automated tests and validate the migrated Next.js experience at desktop and mobile sizes before release.
