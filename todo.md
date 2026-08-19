@@ -28,3 +28,5 @@
 - [x] Push the completed SEO optimization changes to the private GitHub repository.
 - [x] Restore the standard `.next` Next.js production output required by the deployment runtime.
 - [x] Validate the corrected deployment artifact layout and push the release fix to GitHub.
+- [x] Provide a crawl-visible, branded fallback for client-only route hydration so search visitors never receive a blank page shell.
+- [x] Isolate the active Next.js development cache from the standard `.next` production build directory.

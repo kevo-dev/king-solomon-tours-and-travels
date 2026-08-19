@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  distDir: process.env.NODE_ENV === "development" ? ".next-dev" : ".next",
   env: {
     NEXT_PUBLIC_APP_ID: process.env.VITE_APP_ID ?? "",
     NEXT_PUBLIC_OAUTH_PORTAL_URL: process.env.VITE_OAUTH_PORTAL_URL ?? "",
