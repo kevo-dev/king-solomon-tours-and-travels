@@ -1,11 +1,15 @@
+const unsplashImage = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=2000&q=85`;
+
+// These public CDN URLs work on both the Manus runtime and Vercel. The former
+// /manus-storage paths rely on the project's custom Express server, which Vercel does not run.
 export const travelImages = {
-  coast: "/manus-storage/I2pOu4wvPCbq_d398716a.jpg",
-  explorer: "/manus-storage/yxIOMw351LH9_932e8d06.webp",
-  mara: "/manus-storage/lcguzdnogKP7_0e89af3a.jpg",
-  beach: "/manus-storage/U4JWtflwvGTN_a4d81a22.jpg",
-  takawiri: "/manus-storage/takawiri-island-boat_5fad850a.jpg",
-  mfangano: "/manus-storage/mfangano-island-lodge_a86cf895.jpg",
-  mbasa: "/manus-storage/mbasa-island-boat_456ed5b8.jpg",
+  coast: unsplashImage("photo-1651860282131-e3257674ccd1"),
+  explorer: unsplashImage("photo-1520124442480-b5c60b0f80c2"),
+  mara: unsplashImage("photo-1547471080-7cc2caa01a7e"),
+  beach: unsplashImage("photo-1489493887464-892be6d1daae"),
+  takawiri: unsplashImage("photo-1751561484224-71ecfb3086d9"),
+  mfangano: unsplashImage("photo-1751561484224-71ecfb3086d9"),
+  mbasa: unsplashImage("photo-1751561484224-71ecfb3086d9"),
 };
 
 export type Category = "safari" | "beach" | "cultural" | "adventure" | "city";

@@ -34,3 +34,4 @@
 - [x] Restore the original homepage layout while retaining the image-loading fix.
 - [x] Present Lake Victoria boat rides only as individual tour-package options, not as an independent feature or navigation destination.
 - [x] Verify the restored layout and package presentation, then publish and synchronize the correction.
+- [x] Replace Manus-only image paths with Vercel-compatible delivery URLs for the hero and tour placeholders, then validate and synchronize the fix.
