@@ -1,3 +1,5 @@
+"use client";
+
 import { AIChatBox } from "@/components/AIChatBox";
 import TravelNav from "@/components/TravelNav";
 import { trpc } from "@/lib/trpc";

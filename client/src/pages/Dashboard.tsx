@@ -1,3 +1,5 @@
+"use client";
+
 import DashboardLayout from "@/components/DashboardLayout";
 import TourCard from "@/components/TourCard";
 import { tours } from "@/lib/travelData";

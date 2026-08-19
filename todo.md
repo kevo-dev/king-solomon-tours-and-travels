@@ -22,3 +22,9 @@
 - [x] Update automated tests and validate the migrated Next.js experience at desktop and mobile sizes before release.
 - [x] Adjust the Next.js build output so the managed deployment pipeline receives the required public artifact directory.
 - [x] Verify the production build artifact contract and publish a successful deployment checkpoint.
+- [x] Audit and improve global and route-level metadata for King Solomon Tours and Travels.
+- [x] Add crawl controls, sitemap, canonical URLs, social-preview tags, and travel-business structured data.
+- [x] Validate the SEO implementation with automated checks and production build output.
+- [x] Push the completed SEO optimization changes to the private GitHub repository.
+- [x] Restore the standard `.next` Next.js production output required by the deployment runtime.
+- [x] Validate the corrected deployment artifact layout and push the release fix to GitHub.

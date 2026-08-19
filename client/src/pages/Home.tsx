@@ -1,3 +1,5 @@
+"use client";
+
 import TourCard from "@/components/TourCard";
 import TravelNav from "@/components/TravelNav";
 import { destinations, tours, travelImages } from "@/lib/travelData";

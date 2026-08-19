@@ -1,3 +1,5 @@
+"use client";
+
 import TravelNav from "@/components/TravelNav";
 import { operators } from "@/lib/travelData";
 import { CheckCircle2, ChevronRight, Mail, MapPin, Phone, Star } from "lucide-react";

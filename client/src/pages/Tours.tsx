@@ -1,3 +1,5 @@
+"use client";
+
 import TourCard from "@/components/TourCard";
 import TravelNav from "@/components/TravelNav";
 import { useAuth } from "@/_core/hooks/useAuth";

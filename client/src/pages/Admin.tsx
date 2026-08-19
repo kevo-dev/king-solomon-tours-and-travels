@@ -1,3 +1,5 @@
+"use client";
+
 import DashboardLayout from "@/components/DashboardLayout";
 import { operators, tours } from "@/lib/travelData";
 import { trpc } from "@/lib/trpc";

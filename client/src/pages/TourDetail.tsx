@@ -1,3 +1,5 @@
+"use client";
+
 import TravelNav from "@/components/TravelNav";
 import { formatKes, tours } from "@/lib/travelData";
 import { trpc } from "@/lib/trpc";
