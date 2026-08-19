@@ -31,3 +31,6 @@
 - [x] Provide a crawl-visible, branded fallback for client-only route hydration so search visitors never receive a blank page shell.
 - [x] Isolate the active Next.js development cache from the standard `.next` production build directory.
 - [x] Diagnose and restore reliable hero and tour placeholder image loading across the Next.js site.
+- [x] Restore the original homepage layout while retaining the image-loading fix.
+- [x] Present Lake Victoria boat rides only as individual tour-package options, not as an independent feature or navigation destination.
+- [x] Verify the restored layout and package presentation, then publish and synchronize the correction.

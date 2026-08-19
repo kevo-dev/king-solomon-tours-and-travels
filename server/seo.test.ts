@@ -19,7 +19,8 @@ describe("SEO implementation", () => {
     expect(sitemap).toContain("/tours/${tour.slug}");
     expect(tourLayout).toContain("generateMetadata");
     expect(tourLayout).toContain("TouristTrip");
-    expect(clientRoute).toContain("Kenya tours, safaris, and Lake Victoria boat rides.");
+    expect(clientRoute).toContain("Kenya tours, safaris, and curated experiences.");
+    expect(clientRoute).toContain("useEffect(() => setMounted(true), []);");
     expect(clientRoute).toContain("travelImages.mara");
     expect(clientRoute).toContain("travelImages.takawiri");
   });
