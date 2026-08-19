@@ -1,0 +1,16 @@
+import { startLogin } from "@/const";
+import { Menu, Search, X } from "lucide-react";
+import { useState } from "react";
+import { useLocation } from "wouter";
+
+export function BrandMark({ light = false }: { light?: boolean }) {
+  return <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={`flex items-center gap-2 text-left ${light ? "text-white" : "text-[#263e34]"}`} aria-label="Tulia Trails home"><span className={`grid size-8 place-items-center rounded-full border text-sm ${light ? "border-white/40 bg-white/10" : "border-[#d3b472] bg-[#fbf6e9]"}`}>T</span><span className="font-display text-xl leading-none tracking-tight">Tulia Trails</span></button>;
+}
+
+export default function TravelNav({ transparent = false }: { transparent?: boolean }) {
+  const [location, setLocation] = useLocation();
+  const [open, setOpen] = useState(false);
+  const navItems = [{ label: "Explore", path: "/tours" }, { label: "Destinations", path: "/#destinations" }, { label: "Operators", path: "/operators" }];
+  const navigate = (path: string) => { setOpen(false); if (path.startsWith("/#")) { setLocation("/"); setTimeout(() => document.querySelector(path.slice(1))?.scrollIntoView({ behavior: "smooth" }), 50); } else setLocation(path); };
+  return <header className={`sticky top-0 z-50 border-b ${transparent ? "border-white/10 bg-[#17352c]/90 text-white backdrop-blur-xl" : "border-[#e8ddc5]/80 bg-[#fffdf8]/90 backdrop-blur-xl"}`}><div className="container flex h-[76px] items-center justify-between gap-4"><BrandMark light={transparent} /><nav className="hidden items-center gap-7 md:flex">{navItems.map((item) => <button key={item.path} onClick={() => navigate(item.path)} className={`link-underline text-sm font-semibold ${location === item.path ? "text-[#b68138]" : ""}`}>{item.label}</button>)}</nav><div className="hidden items-center gap-2 md:flex"><button onClick={() => setLocation("/tours")} className="grid size-10 place-items-center rounded-full transition hover:bg-black/5" aria-label="Search tours"><Search className="size-4" /></button><button onClick={startLogin} className="px-3 text-sm font-semibold">Log in</button><button onClick={() => setLocation("/planner")} className="rounded-full bg-[#d5a44f] px-5 py-2.5 text-sm font-bold text-[#263e34] shadow-[0_8px_20px_rgba(190,140,46,.22)] transition hover:-translate-y-0.5">Plan My Trip</button></div><button onClick={() => setOpen(!open)} className="grid size-10 place-items-center rounded-full border border-current/20 md:hidden" aria-label="Toggle menu">{open ? <X className="size-5" /> : <Menu className="size-5" />}</button></div>{open && <div className={`border-t px-5 py-5 md:hidden ${transparent ? "border-white/10 bg-[#17352c]" : "border-[#e8ddc5] bg-[#fffdf8]"}`}><div className="mx-auto flex max-w-md flex-col gap-2">{navItems.map((item) => <button key={item.path} onClick={() => navigate(item.path)} className="rounded-xl px-3 py-3 text-left text-sm font-semibold hover:bg-black/5">{item.label}</button>)}<button onClick={() => navigate("/planner")} className="mt-2 rounded-xl bg-[#d5a44f] px-3 py-3 text-left text-sm font-bold text-[#263e34]">Plan My Trip</button><button onClick={startLogin} className="rounded-xl px-3 py-3 text-left text-sm font-semibold">Log in</button></div></div>}</header>;
+}

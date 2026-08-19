@@ -1,33 +1,33 @@
-import { useAuth } from "@/_core/hooks/useAuth";
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import TourCard from "@/components/TourCard";
+import TravelNav from "@/components/TravelNav";
+import { destinations, tours, travelImages } from "@/lib/travelData";
+import { ArrowRight, CalendarDays, ChevronDown, Compass, MapPin, Search, ShieldCheck, Sparkles, Users } from "lucide-react";
+import { useState } from "react";
+import { useLocation } from "wouter";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Workflow, Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // The useAuth hook provides authentication state.
-  // To implement login/logout, call logout(), or start login from an event
-  // handler: onClick={() => startLogin()} (imported from "@/const"). Never call
-  // startLogin() during render (no href={startLogin()}) — it mints a one-time
-  // nonce cookie and must run only at the moment of navigation.
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
+  const [, setLocation] = useLocation();
+  const [destination, setDestination] = useState("");
+  const [dates, setDates] = useState("");
+  const [travelers, setTravelers] = useState("2 travelers");
+  const searchTours = () => setLocation(`/tours?destination=${encodeURIComponent(destination)}&dates=${encodeURIComponent(dates)}&travelers=${encodeURIComponent(travelers)}`);
+  return <div className="min-h-screen overflow-x-hidden bg-[#f8f3e8]"><TravelNav transparent />
+    <main>
+      <section className="relative isolate -mt-[76px] min-h-[680px] overflow-hidden bg-[#17352c] pt-[76px] text-white">
+        <img src={travelImages.mara} alt="Kenya savannah at golden hour" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-70" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(16,46,37,.93)_0%,rgba(16,46,37,.7)_42%,rgba(17,37,30,.28)_100%)]" />
+        <div className="container flex min-h-[604px] items-end pb-12 pt-24 md:pb-20 md:pt-28"><div className="reveal max-w-3xl"><p className="mb-5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.22em] text-[#f4cc7b]"><span className="h-px w-8 bg-[#f4cc7b]" />Kenya, your way</p><h1 className="font-display text-5xl leading-[.96] tracking-tight sm:text-6xl md:text-8xl">Leave room for<br /><em className="text-[#f4cc7b]">wonder.</em></h1><p className="mt-6 max-w-xl text-base leading-7 text-white/80 md:text-lg">A more considered way to find Kenya’s unforgettable places, thoughtful guides, and journeys made for your rhythm.</p>
+          <div className="mt-9 grid gap-3 rounded-[1.5rem] bg-[#fffdf8] p-3 text-[#263e34] shadow-2xl md:grid-cols-[1.15fr_1fr_1fr_auto] md:items-center md:gap-0"><label className="flex min-w-0 items-center gap-3 rounded-xl px-3 py-3 md:border-r md:border-[#e9dfce]"><MapPin className="size-5 shrink-0 text-[#b68138]" /><span className="min-w-0"><span className="block text-[10px] font-bold uppercase tracking-[.12em] text-[#8e8372]">Destination</span><select value={destination} onChange={(e) => setDestination(e.target.value)} className="w-full bg-transparent text-sm font-semibold outline-none"><option value="">Where to?</option><option>Maasai Mara</option><option>Amboseli</option><option>Diani Beach</option><option>Nairobi</option></select></span></label><label className="flex items-center gap-3 rounded-xl px-3 py-3 md:border-r md:border-[#e9dfce]"><CalendarDays className="size-5 shrink-0 text-[#b68138]" /><span><span className="block text-[10px] font-bold uppercase tracking-[.12em] text-[#8e8372]">When</span><input type="text" value={dates} onChange={(e) => setDates(e.target.value)} placeholder="Add dates" className="w-full bg-transparent text-sm font-semibold outline-none placeholder:text-[#263e34]" /></span></label><label className="flex items-center gap-3 rounded-xl px-3 py-3"><Users className="size-5 shrink-0 text-[#b68138]" /><span><span className="block text-[10px] font-bold uppercase tracking-[.12em] text-[#8e8372]">Travelers</span><select value={travelers} onChange={(e) => setTravelers(e.target.value)} className="w-full bg-transparent text-sm font-semibold outline-none"><option>1 traveler</option><option>2 travelers</option><option>3 travelers</option><option>4 travelers</option><option>5+ travelers</option></select></span></label><button onClick={searchTours} className="flex items-center justify-center gap-2 rounded-xl bg-[#d5a44f] px-5 py-4 text-sm font-bold transition hover:bg-[#e6ba67]"><Search className="size-4" />Search</button></div>
+        </div></div>
+      </section>
 
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+      <section id="destinations" className="container py-20 md:py-28"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="eyebrow">A place to begin</p><h2 className="mt-3 max-w-2xl font-display text-4xl leading-tight text-[#263e34] sm:text-5xl">Meet Kenya in all its moods.</h2></div><button onClick={() => setLocation("/tours")} className="group flex items-center gap-2 self-start text-sm font-bold text-[#315b49]">See all destinations <ArrowRight className="size-4 transition group-hover:translate-x-1" /></button></div><div className="mt-10 grid gap-4 md:grid-cols-2"><article className="relative min-h-[390px] overflow-hidden rounded-[1.75rem] md:row-span-2 md:min-h-[600px]"><img src={destinations[0].image} alt="Maasai Mara landscape" className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#17352c]/85 via-transparent to-transparent" /><div className="absolute inset-x-0 bottom-0 p-7 text-white"><p className="text-xs font-bold uppercase tracking-[.16em] text-[#f4cc7b]">{destinations[0].region}</p><h3 className="mt-1 font-display text-4xl">{destinations[0].name}</h3><p className="mt-2 max-w-sm text-sm leading-6 text-white/75">{destinations[0].detail}</p></div></article><div className="grid gap-4 sm:grid-cols-2">{destinations.slice(1).map((place) => <article key={place.name} className="relative min-h-[285px] overflow-hidden rounded-[1.5rem]"><img src={place.image} alt={`${place.name} destination`} className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#17352c]/85 via-transparent to-transparent" /><div className="absolute inset-x-0 bottom-0 p-5 text-white"><p className="text-[10px] font-bold uppercase tracking-[.16em] text-[#f4cc7b]">{place.region}</p><h3 className="mt-1 font-display text-3xl">{place.name}</h3></div></article>)}</div></div></section>
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
-    </div>
-  );
+      <section className="bg-[#eee4d2] py-20 md:py-28"><div className="container"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="eyebrow">Curated stays & experiences</p><h2 className="mt-3 font-display text-4xl text-[#263e34] sm:text-5xl">Follow the feeling.</h2></div><button onClick={() => setLocation("/tours")} className="rounded-full border border-[#315b49] px-5 py-2.5 text-sm font-bold text-[#315b49] transition hover:bg-[#315b49] hover:text-white">Explore all tours</button></div><div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">{tours.slice(0, 4).map((tour) => <TourCard key={tour.id} tour={tour} />)}</div></div></section>
+
+      <section className="container py-20 md:py-28"><div className="soft-grid overflow-hidden rounded-[2rem] bg-[#f5eddf] px-6 py-12 md:px-14 md:py-16"><div className="grid gap-10 lg:grid-cols-[1fr_.82fr] lg:items-center"><div><p className="eyebrow">Meet Tulia</p><h2 className="mt-3 font-display text-4xl leading-tight text-[#263e34] sm:text-5xl">Tell us what you’re dreaming of. We’ll help shape the days around it.</h2><p className="mt-5 max-w-xl text-sm leading-7 text-[#665d51]">From a first safari with your family to a few quiet days by the ocean, our trip planner turns the beginnings of an idea into a personal Kenya itinerary.</p><button onClick={() => setLocation("/planner")} className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#315b49] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#254939]">Plan My Trip <Sparkles className="size-4" /></button></div><div className="rounded-[1.5rem] bg-[#fffdf8] p-5 shadow-[0_16px_45px_rgba(61,43,20,.1)]"><div className="flex items-center gap-3"><span className="grid size-10 place-items-center rounded-full bg-[#e8f0e6] text-[#315b49]"><Compass className="size-5" /></span><div><p className="text-sm font-bold text-[#263e34]">Tulia, your trip planner</p><p className="text-xs text-[#8a806f]">Personal, Kenya-first ideas</p></div></div><div className="mt-5 rounded-2xl bg-[#f5efe4] p-4 text-sm leading-6 text-[#5e564a]">“I have five days, I’m travelling as a couple, and I want wildlife, beautiful food, and no rushed drives.”</div><div className="mt-3 rounded-2xl bg-[#315b49] p-4 text-sm leading-6 text-white">I’d begin with two slow nights in Maasai Mara, then give you the last days by the coast. Want the day-by-day rhythm?</div></div></div></div></section>
+
+      <section className="border-y border-[#e9dfcf] bg-[#fffdf8]"><div className="container grid gap-8 py-10 md:grid-cols-3"><div className="flex items-start gap-4"><span className="grid size-10 place-items-center rounded-full bg-[#f5eddf] text-[#315b49]"><ShieldCheck className="size-5" /></span><div><h3 className="font-bold text-[#263e34]">Verified partners</h3><p className="mt-1 text-sm leading-6 text-[#6c6357]">A considered directory of operators and experience hosts.</p></div></div><div className="flex items-start gap-4"><span className="grid size-10 place-items-center rounded-full bg-[#f5eddf] text-[#315b49]"><CalendarDays className="size-5" /></span><div><h3 className="font-bold text-[#263e34]">Travel on your terms</h3><p className="mt-1 text-sm leading-6 text-[#6c6357]">Shape a simple day out or a full Kenya itinerary.</p></div></div><div className="flex items-start gap-4"><span className="grid size-10 place-items-center rounded-full bg-[#f5eddf] text-[#315b49]"><ChevronDown className="size-5" /></span><div><h3 className="font-bold text-[#263e34]">Clear next steps</h3><p className="mt-1 text-sm leading-6 text-[#6c6357]">Send an inquiry when an experience feels right for you.</p></div></div></div></section>
+    </main><footer className="bg-[#17352c] py-12 text-white"><div className="container flex flex-col justify-between gap-8 md:flex-row"><div><p className="font-display text-2xl">Tulia Trails</p><p className="mt-2 max-w-xs text-sm leading-6 text-white/55">Thoughtful Kenyan journeys, designed around you.</p></div><div className="flex gap-6 text-sm text-white/70"><button onClick={() => setLocation("/tours")}>Explore</button><button onClick={() => setLocation("/operators")}>Operators</button><button onClick={() => setLocation("/planner")}>Plan My Trip</button></div></div></footer>
+  </div>;
 }
