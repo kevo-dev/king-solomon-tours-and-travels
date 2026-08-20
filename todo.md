@@ -35,3 +35,4 @@
 - [x] Present Lake Victoria boat rides only as individual tour-package options, not as an independent feature or navigation destination.
 - [x] Verify the restored layout and package presentation, then publish and synchronize the correction.
 - [x] Replace Manus-only image paths with Vercel-compatible delivery URLs for the hero and tour placeholders, then validate and synchronize the fix.
+- [x] Make the Lake Victoria boat-ride packages the primary featured offering while retaining the integrated tour-marketplace layout.
